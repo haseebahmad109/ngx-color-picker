@@ -116,9 +116,16 @@
     <div *ngIf="!cpPresetColors?.length && cpAddColorButton" class="{{cpPresetEmptyMessageClass}}">{{cpPresetEmptyMessage}}</div>
   </div>
 
+  <div class="picker-btn-container" *ngIf="cpPickerButton">
+    <button [class.disabled]="cpPickerButtonEnableState" (click)="onColorPickerChange()" class="picker-btn">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAD7UlEQVR4XuWbuYsUQRhH33rivyAIBhoIHqGhKAYKBoIG4oX3ASqC4IEnuogmCh54LOLNIoJgYGggZkaKqIiCgmYaLq4ouvIbqqTtne6u7qnqqR4bloWZ7qp+r766vu7po9nHWGAxsAyYC0wFJgHfgU/AM+Ch+fvRDrWvwfxLgDPAdAeGz8AB4C4wkjy/iQLU6gLf5QCePuUesAH4Zr9omoBxwE1gZQV4e8kT022G9UGTBKjlBb+qA3h76aApZ6QpAgR/HVjjAd4WoSgabIKAMcA1YJ1HeBWlWWJaNwWoPx8HfgHHzP80o+AHzMDlmb9V3PJuCUgPZreB9SkJgr8CbApBbsq80w0BWSN5UoLgLwFbAsKr6Ld1CyiaxiRB8/Q5YHtgeBU/XKeAInjL+85xdefFT10CXOG9QJUoZKgOAbHCy9PL0AJihpeAgdACTppdWImorPXURaEFnAAO1YrkXtkrYHZoASHW8O6I+WcuBB6HFqBbiFHCaWB/ndvhmCTcMsvu33UKsJHwHJjpK4YrlHPD7C20AWsddXQBW48GxIMVbtrXJdpSa2/Ravk6BUhyt+Gvmr3FP/B1REAM8NpV7ki3fB0REAP8RWBnOhVeRxdwhdf2V4fPXJ/l05Z6dx58qC7gCq/pSHt/HRqdV/sa7YCzwJ4i+BACysLb6chnyvsNMCsjxzjKsc9psCq8vSmfEtrlGNsGmC8BncInJahrdPLkx5blJMGHAFd4PdXZ6BCaioTaJHQqwDe8bT2fiRQ9eziaNcB2IiAUvO7VpwDBS4LXMaAp8HqeqAcro5bAnawEewa+yjrAFX7UttNhkeMz7AtbvkoExAD/AphTINMZvkwExAB/BFCWOe89gVLwrgJigVdOQUdWeq00vIuA2OCTK8ZkJFSCLxLgCq/KNzus8JJd13XAU9jblk93fUWCvteGqj9vqssbM7IWQmXgc+fZNpX7gHeYVNxOyRKwDzjlc7Q1ZUUFn9UFJgMfgfE5Aqr0uejgswSsNe/jZfH3DHyWAOXRlFJqd9wHVpQccKJs+byVYJ4AZVgvuA0vrbOihq8SAWUERA8fUkAj4EMJaAx8CAGNgvctoHHwWQIO5+TQHgBPM2aBecDSghkib21fYnLxd2p6KTwR0JuaU/xV8bek6ODbRcA285Kyb/4o4dMCQrV+tPBpASFaP2r4pIAQrR89fFLAVuCyp46vn6PtLbln8FR1+WI0C0wA3juM/B8AvWw0lFPNF719CXwtfyvduUICilpf4Mq56XHzz+7cZrhaJeA1MKNNFT0NnswHzAcemV9d63Olw9Tiekbfcy2ebmi7ElwAnDc/Sv4vwK2IP5FoBMEATIJEAAAAAElFTkSuQmCC" />
+    </button>
+  </div>
+
   <div *ngIf="cpOKButton || cpCancelButton" class="button-area">
     <button *ngIf="cpCancelButton" type="button" class="{{cpCancelButtonClass}}" (click)="onCancelColor($event)">{{cpCancelButtonText}}</button>
 
     <button *ngIf="cpOKButton" type="button" class="{{cpOKButtonClass}}" (click)="onAcceptColor($event)">{{cpOKButtonText}}</button>
   </div>
+  
 </div>

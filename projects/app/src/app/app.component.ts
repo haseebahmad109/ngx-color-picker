@@ -77,4 +77,8 @@ export class AppComponent {
 
     return '';
   }
+
+  oncpPickerButtonChange(event) {
+    console.log(event);
+  }
 }

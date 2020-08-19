@@ -116,6 +116,9 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   public cpAddColorButtonClass: string;
   public cpRemoveColorButtonClass: string;
 
+  public cpPickerButton: boolean;
+  public cpPickerButtonEnableState: boolean = false;
+
   @ViewChild('dialogPopup', { static: true }) dialogElement: ElementRef;
 
   @ViewChild('hueSlider', { static: true }) hueSlider: ElementRef;
@@ -209,7 +212,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     cpPresetEmptyMessageClass: string, cpOKButton: boolean, cpOKButtonClass: string,
     cpOKButtonText: string, cpCancelButton: boolean, cpCancelButtonClass: string,
     cpCancelButtonText: string, cpAddColorButton: boolean, cpAddColorButtonClass: string,
-    cpAddColorButtonText: string, cpRemoveColorButtonClass: string): void
+    cpAddColorButtonText: string, cpRemoveColorButtonClass: string, cpPickerButton: boolean): void
   {
     this.setInitialColor(color);
 
@@ -244,6 +247,8 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.cpOKButton = cpOKButton;
     this.cpOKButtonText = cpOKButtonText;
     this.cpOKButtonClass = cpOKButtonClass;
+
+    this.cpPickerButton = cpPickerButton;;
 
     this.cpCancelButton = cpCancelButton;
     this.cpCancelButtonText = cpCancelButtonText;
@@ -776,6 +781,11 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.cpPresetColors = this.cpPresetColors.filter((color) => (color !== value));
 
     this.directiveInstance.presetColorsChanged(this.cpPresetColors);
+  }
+
+  public onColorPickerChange() {
+    this.cpPickerButtonEnableState = !this.cpPickerButtonEnableState;
+    this.directiveInstance.pickerButtonChange(this.cpPickerButtonEnableState);
   }
 
   // Private helper functions for the color picker dialog status
